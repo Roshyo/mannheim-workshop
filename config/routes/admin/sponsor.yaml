@@ -16,6 +16,9 @@ app_admin_sponsor_create:
         _sylius:
             permission: true
             section: admin
+            vars:
+                templates:
+                    form: '@SyliusAdmin/Sponsoring/Sponsor/_form.html.twig'
 
 app_admin_sponsor_update:
     path: /sponsors/{id}/update
@@ -25,6 +28,9 @@ app_admin_sponsor_update:
         _sylius:
             permission: true
             section: admin
+            vars:
+                templates:
+                    form: '@SyliusAdmin/Sponsoring/Sponsor/_form.html.twig'
 
 app_admin_sponsor_delete:
     path: /sponsors/{id}/delete
