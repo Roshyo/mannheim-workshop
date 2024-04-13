@@ -65,6 +65,19 @@ sylius_grid:
                         type: update
                         label: sylius.ui.update
 
+sylius_ui:
+    events:
+        app.admin.sponsor.create.javascripts:
+            blocks:
+                preview_image:
+                    template: '@SyliusAdmin/Sponsoring/Sponsor/_preview_image.html.twig'
+                    priority: 10
+        app.admin.sponsor.update.javascripts:
+            blocks:
+                preview_image:
+                    template: '@SyliusAdmin/Sponsoring/Sponsor/_preview_image.html.twig'
+                    priority: 10
+
 liip_imagine:
     filter_sets:
         app_admin_sponsor_logo_thumbnail:
