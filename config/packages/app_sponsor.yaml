@@ -42,9 +42,16 @@ sylius_grid:
                     label: app.ui.name
                     sortable: ~
                 tier:
-                    type: string
+                    type: twig
                     label: app.ui.tier
                     sortable: ~
+                    options:
+                        template: "@SyliusAdmin/Grid/Field/_sponsor_tier.html.twig"
+                logo:
+                    type: twig
+                    label: app.ui.logo
+                    options:
+                        template: "@SyliusAdmin/Grid/Field/_sponsor_logo.html.twig"
             actions:
                 main:
                     create:
@@ -58,6 +65,12 @@ sylius_grid:
                         type: update
                         label: sylius.ui.update
 
+liip_imagine:
+    filter_sets:
+        app_admin_sponsor_logo_thumbnail:
+            filters:
+                thumbnail: { size: [50, 50], mode: outbound }
+
 services:
     _defaults:
         autowire: true
@@ -68,7 +81,7 @@ services:
         arguments:
             - '%app.model.sponsor.class%'
             - ['sylius']
-    
+
     App\Form\Type\Resource\Sponsoring\SponsorLogoType:
         arguments:
             - '%app.model.sponsor_logo.class%'
