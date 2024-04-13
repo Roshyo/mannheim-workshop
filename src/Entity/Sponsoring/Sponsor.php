@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace App\Entity\Sponsoring;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Core\Model\ImageAwareInterface;
 use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'app_sponsor')]
-class Sponsor implements ResourceInterface, CodeAwareInterface
+class Sponsor implements ResourceInterface, CodeAwareInterface, ImageAwareInterface
 {
     public const TIER_HOST = 'host';
     public const TIER_REGULAR = 'regular';
@@ -31,6 +32,9 @@ class Sponsor implements ResourceInterface, CodeAwareInterface
 
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $name = null;
+
+    #[ORM\OneToOne(mappedBy: 'owner', targetEntity: SponsorLogo::class, cascade: ['persist'], orphanRemoval: true)]
+    private ?ImageInterface $logo = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $url = null;
@@ -70,6 +74,7 @@ class Sponsor implements ResourceInterface, CodeAwareInterface
 
     public function setLogo(?ImageInterface $logo): void
     {
+        $logo->setOwner($this);
         $this->logo = $logo;
     }
 
