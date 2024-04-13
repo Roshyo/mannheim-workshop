@@ -1,0 +1,36 @@
+app_admin_sponsor_index:
+    path: /sponsors/
+    methods: [GET]
+    defaults:
+        _controller: app.controller.sponsor::indexAction
+        _sylius:
+            permission: true
+            section: admin
+            grid: app_admin_sponsor
+
+app_admin_sponsor_create:
+    path: /sponsors/create
+    methods: [GET, POST]
+    defaults:
+        _controller: app.controller.sponsor::createAction
+        _sylius:
+            permission: true
+            section: admin
+
+app_admin_sponsor_update:
+    path: /sponsors/{id}/update
+    methods: [GET, PUT]
+    defaults:
+        _controller: app.controller.sponsor::updateAction
+        _sylius:
+            permission: true
+            section: admin
+
+app_admin_sponsor_delete:
+    path: /sponsors/{id}/delete
+    methods: [DELETE]
+    defaults:
+        _controller: app.controller.sponsor::deleteAction
+        _sylius:
+            permission: true
+            section: admin

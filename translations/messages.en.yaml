@@ -1,0 +1,4 @@
+app:
+    ui:
+        new_sponsor: New sponsor
+        sponsors: Sponsors
