@@ -1,10 +1,13 @@
 {% set sponsors = get_sponsors() %}
 
 <div class="ui hidden divider"></div>
-{% for sponsor in sponsors %}
-    <a href="{{ sponsor.url }}">
-        <img src="{{ sponsor.logo.path|imagine_filter('app_shop_sponsor_logo_banner') }}" alt="{{ sponsor.name }}">
-    </a>
-{% endfor %}
+
+<div {{ sylius_test_html_attribute('sponsors-list') }}>
+    {% for sponsor in sponsors %}
+        <a href="{{ sponsor.url }}" {{ sylius_test_html_attribute('sponsor', sponsor.code) }}>
+            <img src="{{ sponsor.logo.path|imagine_filter('app_shop_sponsor_logo_banner') }}" alt="{{ sponsor.name }}">
+        </a>
+    {% endfor %}
+</div>
 
 <div class="ui hidden divider"></div>

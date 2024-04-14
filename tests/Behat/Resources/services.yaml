@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+    
+    App\Tests\Behat\Context\Setup\Sponsoring\SponsorContext:
+        arguments:
+            $baseDirectory: '%kernel.project_dir%'
+    
+    App\Tests\Behat\Context\Ui\Sponsoring\SponsorContext:
+        arguments:
+            $homePage: '@sylius.behat.page.shop.home'
