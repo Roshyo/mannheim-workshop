@@ -83,6 +83,9 @@ liip_imagine:
         app_admin_sponsor_logo_thumbnail:
             filters:
                 thumbnail: { size: [50, 50], mode: outbound }
+        app_shop_sponsor_logo_banner:
+            filters:
+                thumbnail: { size: [120, 120], mode: outbound }
 
 services:
     _defaults:
