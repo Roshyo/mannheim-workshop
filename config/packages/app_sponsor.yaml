@@ -3,7 +3,13 @@ sylius_resource:
         app.sponsor:
             classes:
                 model: App\Entity\Sponsoring\Sponsor
+                form: App\Form\Type\Resource\Sponsoring\SponsorType
             templates: '@SyliusAdmin/Crud'
+        
+        app.sponsor_logo:
+            classes:
+                model: App\Entity\Sponsoring\SponsorLogo
+                form: App\Form\Type\Resource\Sponsoring\SponsorLogoType
 
 sylius_grid:
     grids:
@@ -51,3 +57,25 @@ sylius_grid:
                     update:
                         type: update
                         label: sylius.ui.update
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    App\Form\Type\Resource\Sponsoring\SponsorType:
+        arguments:
+            - '%app.model.sponsor.class%'
+            - ['sylius']
+    
+    App\Form\Type\Resource\Sponsoring\SponsorLogoType:
+        arguments:
+            - '%app.model.sponsor_logo.class%'
+            - ['sylius']
+    
+    app.listener.sponsor_logo_upload_listener:
+        class: Sylius\Bundle\CoreBundle\EventListener\ImageUploadListener
+        tags:
+            - { name: kernel.event_listener, event: app.sponsor.pre_create, method: uploadImage }
+            - { name: kernel.event_listener, event: app.sponsor.pre_update, method: uploadImage }
