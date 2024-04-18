@@ -1,0 +1,9 @@
+sylius_ui:
+    events:
+        sylius.shop.homepage:
+            blocks:
+                current_time:
+                    template: '@SyliusShop/Homepage/Block/_current_time.html.twig'
+                    priority: 8
+                newsletter:
+                    priority: 5

@@ -18,8 +18,8 @@ class Sponsor implements ResourceInterface, CodeAwareInterface, ImageAwareInterf
     public const TIER_REGULAR = 'regular';
 
     public const TIER_CHOICES = [
-        self::TIER_HOST => 'Host',
-        self::TIER_REGULAR => 'Regular',
+        self::TIER_HOST => 'host',
+        self::TIER_REGULAR => 'regular',
     ];
 
     #[ORM\Id]

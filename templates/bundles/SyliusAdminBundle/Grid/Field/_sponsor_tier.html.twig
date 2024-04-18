@@ -1,0 +1,11 @@
+{% if data == constant('App\\Entity\\Sponsoring\\Sponsor::TIER_HOST') %}
+    <span class="ui green label">
+        <i class="warehouse icon"></i>
+        {{ data }}
+    </span>
+{% else %}
+    <span class="ui grey label">
+        <i class="star icon"></i>
+        {{ data }}
+    </span>
+{% endif %}

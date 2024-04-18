@@ -1,0 +1,13 @@
+{
+    "name": "sylius/mannheim-theme",
+    "authors": [
+        {
+            "name": "Workshop attendees"
+        }
+    ],
+    "extra": {
+        "sylius-theme": {
+            "title": "Mannheim Theme"
+        }
+    }
+}
